@@ -10,9 +10,7 @@
 
 @interface HomeTableViewController : UITableViewController
 
-//@property (strong, nonatomic) IBOutlet UIRefreshControl *refreshControl;
-
-- (IBAction)refreshControlAction:(id)sender;
+@property (strong, nonatomic) NSArray *transactions;
 
 
 @end

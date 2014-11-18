@@ -7,7 +7,8 @@
 //
 
 #import "HomeTableViewController.h"
-
+#import <AFNetworking/AFHTTPSessionManager.h>
+#import "Credentials.h"
 @interface HomeTableViewController ()
 
 @end
@@ -16,6 +17,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self getTransactions];
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -32,26 +34,41 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Potentially incomplete method implementation.
     // Return the number of sections.
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return 1;
+    return [self.transactions count];
 }
 
-/*
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
+    NSDictionary *dict = self.transactions[indexPath.row];
     
-    // Configure the cell...
+    UILabel *btcLabel = (UILabel *)[cell viewWithTag:1];
+    double dubs = [[dict objectForKey:@"amount"] doubleValue];
+    NSNumber *btc = [NSNumber numberWithDouble:dubs];
+    btcLabel.text = [NSString stringWithFormat:@"%@ BTC", btc];
+    
+    UIView *side = (UIView *)[cell viewWithTag:4];
+    if (dubs > 0) {
+        side.backgroundColor = [UIColor greenColor];
+    } else {
+        side.backgroundColor = [UIColor redColor];
+    }
+    
+    UILabel *timeLabel = (UILabel *)[cell viewWithTag:2];
+    timeLabel.text = dict[@"time"];
+    
+    UILabel *addressLabel = (UILabel *)[cell viewWithTag:3];
+    addressLabel.text = dict[@"to_address"];
     
     return cell;
 }
-*/
+
 
 /*
 // Override to support conditional editing of the table view.
@@ -97,6 +114,23 @@
 }
 */
 
-- (IBAction)refreshControlAction:(id)sender {
+- (void)getTransactions
+{
+    NSString *urlEnding = [NSString stringWithFormat:@"api/history"];
+    
+    // Begin API call
+    AFHTTPSessionManager *manager = [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString:BaseURLString]];
+    manager.requestSerializer = [AFJSONRequestSerializer serializer];
+    manager.responseSerializer = [AFJSONResponseSerializer serializer];
+    
+    [manager GET:urlEnding parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
+        NSLog(@"Successfully posted new transaction: %@", responseObject);
+        self.transactions = responseObject[@"transactions"];
+        [self.tableView reloadData];
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        NSLog(@"Couldn't post new transaction.");
+        NSLog(@"Error: %@", error.description);
+    }];
 }
+
 @end
