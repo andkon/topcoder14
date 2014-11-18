@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14B23" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14B23" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="TkQ-Oh-1Kg">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
     </dependencies>
@@ -8,24 +8,45 @@
         <scene sceneID="dzl-Lj-dlz">
             <objects>
                 <tableViewController id="svN-9n-R1M" customClass="HomeTableViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="qph-zn-zAD">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="qph-zn-zAD">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="GHj-M4-iYh">
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="GHj-M4-iYh" id="Ykk-pA-cUc">
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
+                        <sections>
+                            <tableViewSection id="dnu-J3-nvD">
+                                <cells>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="GHj-M4-iYh">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="GHj-M4-iYh" id="Ykk-pA-cUc">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="MfM-QE-G9p">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="MfM-QE-G9p" id="Fe9-TO-059">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="bks-Vd-l3u">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bks-Vd-l3u" id="QVi-HY-A9K">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
                         <connections>
                             <outlet property="dataSource" destination="svN-9n-R1M" id="d0H-Cn-b9q"/>
                             <outlet property="delegate" destination="svN-9n-R1M" id="xZ9-IM-RVx"/>
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Your Wallet" id="hQa-3s-ecA">
+                        <barButtonItem key="leftBarButtonItem" title="Confirm" id="aA0-MV-sHL">
+                            <connections>
+                                <segue destination="g2N-LM-ENj" kind="presentation" id="HqQ-Lc-cZt"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Send BTC$" style="plain" id="u1N-n4-ETC">
                             <color key="tintColor" red="0.0" green="0.98624604940000005" blue="0.015841684540000001" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
@@ -33,24 +54,15 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
-                    <refreshControl key="refreshControl" opaque="NO" multipleTouchEnabled="YES" contentMode="center" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="p0C-yr-iuE">
-                        <autoresizingMask key="autoresizingMask"/>
-                        <connections>
-                            <action selector="refreshControlAction:" destination="svN-9n-R1M" eventType="valueChanged" id="4vl-j7-7yN"/>
-                        </connections>
-                    </refreshControl>
-                    <connections>
-                        <outlet property="refreshControl" destination="p0C-yr-iuE" id="dWT-vC-mGx"/>
-                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FL4-fc-aMk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="254.5" y="1067.5"/>
         </scene>
-        <!--View Controller-->
+        <!--Start Transaction View Controller-->
         <scene sceneID="Oq8-VR-odu">
             <objects>
-                <viewController id="RNK-h2-IlG" sceneMemberID="viewController">
+                <viewController id="RNK-h2-IlG" customClass="StartTransactionViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Tu4-4x-fbe"/>
                         <viewControllerLayoutGuide type="bottom" id="Fep-Ha-bxG"/>
@@ -58,13 +70,60 @@
                     <view key="view" contentMode="scaleToFill" id="tOn-ZG-nGj">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nld-CF-sFR">
+                                <rect key="frame" x="164" y="363" width="46" height="30"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="startTransactionPressed:" destination="RNK-h2-IlG" eventType="touchUpInside" id="1gb-rZ-f2j"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="startTransactionButton" destination="nld-CF-sFR" id="ZkN-Gf-CzF"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ag1-jZ-5vs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="789.5" y="1067.5"/>
+        </scene>
+        <!--Confirm Transaction View Controller-->
+        <scene sceneID="Ksw-3g-Zv4">
+            <objects>
+                <viewController id="g2N-LM-ENj" customClass="ConfirmTransactionViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="58O-GT-ODs"/>
+                        <viewControllerLayoutGuide type="bottom" id="aEt-33-eOX"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="3Ls-Rl-Rla">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DbA-Dw-8ey">
+                                <rect key="frame" x="164" y="363" width="46" height="30"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="confirmButtonPressed:" destination="g2N-LM-ENj" eventType="touchUpInside" id="dqL-Gl-7wj"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="confirmButton" destination="DbA-Dw-8ey" id="Hdm-hJ-yfY"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bSl-TH-p0w" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1225.5" y="1067.5"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="uNr-ks-B1y">

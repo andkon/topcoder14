@@ -7,6 +7,8 @@
 //
 
 #import "ConfirmTransactionViewController.h"
+#import <AFNetworking/AFHTTPSessionManager.h>
+#import "Credentials.h"
 
 @interface ConfirmTransactionViewController ()
 
@@ -24,6 +26,23 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)confirmTransactionId:(NSNumber *)transactionId withPin:(NSString *)secretPin
+{
+    NSString *urlEnding = [NSString stringWithFormat:@"api/confirm?transaction_id=%@&secret_pin=%@", transactionId, secretPin];
+    // Begin API call
+    AFHTTPSessionManager *manager = [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString:BaseURLString]];
+    manager.requestSerializer = [AFJSONRequestSerializer serializer];
+    manager.responseSerializer = [AFJSONResponseSerializer serializer];
+    
+    [manager POST:urlEnding parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
+        NSLog(@"Successfully confirmed transaction: %@", responseObject);
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        NSLog(@"Couldn't confirm transaction.");
+        NSLog(@"Error: %@", error.description);
+    }];
+}
+
+
 /*
 #pragma mark - Navigation
 
@@ -34,4 +53,7 @@
 }
 */
 
+- (IBAction)confirmButtonPressed:(id)sender {
+    [self confirmTransactionId:[NSNumber numberWithInt:8] withPin:@"4QwS5xSnzgyV"];
+}
 @end

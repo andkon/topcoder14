@@ -11,9 +11,6 @@
 
 @interface AppDelegate ()
 
-@property BOOL nymiProvisioned;
-
-
 @end
 
 @implementation AppDelegate

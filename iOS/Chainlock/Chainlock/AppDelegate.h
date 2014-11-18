@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "NclWrapper.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 

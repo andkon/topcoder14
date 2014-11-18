@@ -10,4 +10,6 @@
 
 @interface StartTransactionViewController : UIViewController
 
+@property (weak, nonatomic) IBOutlet UIButton *startTransactionButton;
+- (IBAction)startTransactionPressed:(id)sender;
 @end

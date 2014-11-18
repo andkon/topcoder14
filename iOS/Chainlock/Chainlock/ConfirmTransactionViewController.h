@@ -11,6 +11,8 @@
 @interface ConfirmTransactionViewController : UIViewController
 
 @property (nonatomic, strong) NSNumber *transactionId;
+@property (weak, nonatomic) IBOutlet UIButton *confirmButton;
 
+- (IBAction)confirmButtonPressed:(id)sender;
 
 @end

@@ -9,7 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface HomeTableViewController : UITableViewController
-@property (strong, nonatomic) IBOutlet UIRefreshControl *refreshControl;
+
+//@property (strong, nonatomic) IBOutlet UIRefreshControl *refreshControl;
 
 - (IBAction)refreshControlAction:(id)sender;
 
