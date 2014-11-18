@@ -85,7 +85,7 @@
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="0.0000BTC" textAlignment="center" minimumFontSize="17" background="Textbox.png" translatesAutoresizingMaskIntoConstraints="NO" id="lkH-rO-dwp">
                                 <rect key="frame" x="89" y="154" width="197" height="43"/>
                                 <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="21"/>
-                                <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="next"/>
+                                <textInputTraits key="textInputTraits" keyboardType="decimalPad" returnKeyType="next"/>
                                 <connections>
                                     <action selector="btcEditingChanged:" destination="RNK-h2-IlG" eventType="editingChanged" id="HBE-qQ-AIi"/>
                                     <outlet property="delegate" destination="RNK-h2-IlG" id="gZS-xo-Tlp"/>
