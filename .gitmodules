@@ -1,0 +1,3 @@
+[submodule "chainlock"]
+	path = chainlock
+	url = git@github.com:rogueleaderr/chainlock.git
