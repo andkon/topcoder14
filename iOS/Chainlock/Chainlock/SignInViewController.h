@@ -14,7 +14,6 @@
 
 @property (strong, nonatomic) AppDelegate *appDelegate;
 
--(void)permastoreProvisionDetails:(NclProvision)provision;
 
 @end
 
