@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>36FCB8DA-A427-48C1-8D65-9F77E076320C</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Chainlock</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>BBA3F9427CD0956B8D30C1F8DDA0B8AF7B1A49EA</key>
+		<string>github.com:andkon/topcoder14.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>iOS/Chainlock/Chainlock.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>BBA3F9427CD0956B8D30C1F8DDA0B8AF7B1A49EA</key>
+		<string>../../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>github.com:andkon/topcoder14.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>BBA3F9427CD0956B8D30C1F8DDA0B8AF7B1A49EA</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>BBA3F9427CD0956B8D30C1F8DDA0B8AF7B1A49EA</string>
+			<key>IDESourceControlWCCName</key>
+			<string>topcoder14</string>
+		</dict>
+	</array>
+</dict>
+</plist>
