@@ -7,18 +7,79 @@
 //
 
 #import "AppDelegate.h"
+#import "SignInViewController.h"
 
 @interface AppDelegate ()
+
+@property BOOL nymiProvisioned;
+
 
 @end
 
 @implementation AppDelegate
+@synthesize myNcl, nymiProvisioned;
 
+- (NSString *)permaStorageFilePath
+{
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    return [documentsDirectory stringByAppendingPathComponent:@"butts.archive"];
+}
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    // Find stored credentials
+    NSString *filePath = [self permaStorageFilePath];
+    if ([[NSFileManager defaultManager] fileExistsAtPath:filePath]) {
+        NSData *data = [[NSMutableData alloc] initWithContentsOfFile:filePath];
+        NSKeyedUnarchiver *unarchiver = [[NSKeyedUnarchiver alloc] initForReadingWithData:data];
+        self.provisionDetails = [unarchiver decodeObjectForKey:@"provisionDetails"];
+        NSLog(@"Got provisioning details.");
+        NSLog(@"%@, %@)", [self.provisionDetails objectForKey:@"id"], [self.provisionDetails objectForKey:@"key"]);
+    }
+
+    self.myNcl = [[NclWrapper alloc] init];
+    [self.myNcl setNclDelegate:self];
+    
     return YES;
 }
+
+-(void)incomingNclEvent:(NclEvent *)nclEvent
+{
+    NclEvent currentEvent = *nclEvent;
+        switch (currentEvent.type) {
+            case NCL_EVENT_INIT:
+                if (self.provisionDetails) {
+                    [myNcl findNymi];
+                    [myNcl setEventTypeToWaitFor:NCL_EVENT_FIND];
+                    [myNcl waitNclForEvent];
+                    
+                    // Set delegate to appdelegate
+//                    [myNcl setNclDelegate:self];
+                    [self displayViewControllerForNymiStatus:NymiStatusProvisioned];
+                } else {
+                    [self displayViewControllerForNymiStatus:NymiStatusNone];
+                }
+                break;
+            
+            case NCL_EVENT_FIND:
+                NSLog(@"Found, about to validate nymi");
+                [myNcl validateNymi:(currentEvent.find.nymiHandle)];
+                [myNcl setEventTypeToWaitFor:NCL_EVENT_VALIDATION];
+                [myNcl waitNclForEvent];
+                [myNcl stopScan];
+                break;
+                
+            case NCL_EVENT_VALIDATION:
+                [myNcl disconnectNymi:(currentEvent.validation.nymiHandle)];
+                NSLog(@"Validated and disconnected");
+                if (nymiProvisioned)
+                    [self displayViewControllerForNymiStatus:NymiStatusValidation];
+            default:
+                break;
+        }
+    }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
@@ -41,5 +102,30 @@
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
+
+- (void)displayViewControllerForNymiStatus:(NymiStatus)statusCode
+{
+    if (statusCode == NymiStatusProvisioned) {
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        UIViewController *navVC = [storyboard instantiateViewControllerWithIdentifier:@"NavVC"];
+        
+        self.window.rootViewController = navVC;
+        [self.window makeKeyAndVisible];
+    } else if (statusCode == NymiStatusValidation) {
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        UIViewController *navVC = [storyboard instantiateViewControllerWithIdentifier:@"NavVC"];
+        
+        self.window.rootViewController = navVC;
+        [self.window makeKeyAndVisible];
+    } else if (statusCode == NymiStatusNone) {
+        // Refresh token failed to get new token - get her to log in again using modal. SignInVC
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        SignInViewController *signInVC = [storyboard instantiateViewControllerWithIdentifier:@"SignInVC"];
+        [myNcl setNclDelegate:signInVC];
+        self.window.rootViewController = signInVC;
+        [self.window makeKeyAndVisible];
+    }
+}
+
 
 @end

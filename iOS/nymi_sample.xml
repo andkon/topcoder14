@@ -1,0 +1,13 @@
+<?xml version="1.0" ?>
+<Version_Info>
+    <nymulator_version>0.3.0</nymulator_version>
+</Version_Info>
+<nymi0>
+    <Nymi_Data>
+        <kn>55 91 186 43 141 119 140 197 20 226 128 25 187 81 94 83</kn>
+        <ka>142 133 120 226 121 177 235 35 204 70 142 77 199 27 150 14</ka>
+    </Nymi_Data>
+    <Provisioned_Neas>
+        <p1:iOS NCL Wrapper>164 244 159 214 180 194 213 238 90 23 249 128 249 252 113 181</p1:iOS NCL Wrapper>
+    </Provisioned_Neas>
+</nymi0>

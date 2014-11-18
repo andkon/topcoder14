@@ -7,13 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		52273D6B1A1B30C10076ADFC /* HomeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52273D6A1A1B30C10076ADFC /* HomeTableViewController.m */; };
 		529197301A1AA4DC00E8DA02 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5291972F1A1AA4DC00E8DA02 /* main.m */; };
 		529197331A1AA4DC00E8DA02 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 529197321A1AA4DC00E8DA02 /* AppDelegate.m */; };
-		529197361A1AA4DC00E8DA02 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 529197351A1AA4DC00E8DA02 /* ViewController.m */; };
+		529197361A1AA4DC00E8DA02 /* SignInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 529197351A1AA4DC00E8DA02 /* SignInViewController.m */; };
 		529197391A1AA4DC00E8DA02 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 529197371A1AA4DC00E8DA02 /* Main.storyboard */; };
 		5291973B1A1AA4DC00E8DA02 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5291973A1A1AA4DC00E8DA02 /* Images.xcassets */; };
 		5291973E1A1AA4DC00E8DA02 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5291973C1A1AA4DC00E8DA02 /* LaunchScreen.xib */; };
 		5291974A1A1AA4DC00E8DA02 /* ChainlockTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 529197491A1AA4DC00E8DA02 /* ChainlockTests.m */; };
+		52F5011E1A1AAEC600667899 /* NclWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 52F5011C1A1AAEC600667899 /* NclWrapper.m */; };
+		52F501241A1ADA8300667899 /* BlockIOController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52F501231A1ADA8300667899 /* BlockIOController.m */; };
+		52F5012A1A1AEA0000667899 /* libNCLNetiOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 52F501291A1AEA0000667899 /* libNCLNetiOS.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -27,19 +31,27 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		52273D691A1B30C00076ADFC /* HomeTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeTableViewController.h; sourceTree = "<group>"; };
+		52273D6A1A1B30C10076ADFC /* HomeTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeTableViewController.m; sourceTree = "<group>"; };
 		5291972A1A1AA4DC00E8DA02 /* Chainlock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Chainlock.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5291972E1A1AA4DC00E8DA02 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5291972F1A1AA4DC00E8DA02 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		529197311A1AA4DC00E8DA02 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		529197321A1AA4DC00E8DA02 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		529197341A1AA4DC00E8DA02 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		529197351A1AA4DC00E8DA02 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		529197341A1AA4DC00E8DA02 /* SignInViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SignInViewController.h; sourceTree = "<group>"; };
+		529197351A1AA4DC00E8DA02 /* SignInViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SignInViewController.m; sourceTree = "<group>"; };
 		529197381A1AA4DC00E8DA02 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5291973A1A1AA4DC00E8DA02 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		5291973D1A1AA4DC00E8DA02 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		529197431A1AA4DC00E8DA02 /* ChainlockTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ChainlockTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		529197481A1AA4DC00E8DA02 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		529197491A1AA4DC00E8DA02 /* ChainlockTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChainlockTests.m; sourceTree = "<group>"; };
+		52F5011C1A1AAEC600667899 /* NclWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NclWrapper.m; sourceTree = "<group>"; };
+		52F5011D1A1AAEC600667899 /* NclWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NclWrapper.h; sourceTree = "<group>"; };
+		52F501211A1AAF6900667899 /* ncl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ncl.h; sourceTree = "<group>"; };
+		52F501221A1ADA8300667899 /* BlockIOController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlockIOController.h; sourceTree = "<group>"; };
+		52F501231A1ADA8300667899 /* BlockIOController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlockIOController.m; sourceTree = "<group>"; };
+		52F501291A1AEA0000667899 /* libNCLNetiOS.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libNCLNetiOS.a; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +59,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				52F5012A1A1AEA0000667899 /* libNCLNetiOS.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,8 +96,15 @@
 			children = (
 				529197311A1AA4DC00E8DA02 /* AppDelegate.h */,
 				529197321A1AA4DC00E8DA02 /* AppDelegate.m */,
-				529197341A1AA4DC00E8DA02 /* ViewController.h */,
-				529197351A1AA4DC00E8DA02 /* ViewController.m */,
+				529197341A1AA4DC00E8DA02 /* SignInViewController.h */,
+				529197351A1AA4DC00E8DA02 /* SignInViewController.m */,
+				52F5011D1A1AAEC600667899 /* NclWrapper.h */,
+				52F5011C1A1AAEC600667899 /* NclWrapper.m */,
+				52273D691A1B30C00076ADFC /* HomeTableViewController.h */,
+				52273D6A1A1B30C10076ADFC /* HomeTableViewController.m */,
+				52F501221A1ADA8300667899 /* BlockIOController.h */,
+				52F501231A1ADA8300667899 /* BlockIOController.m */,
+				52F501211A1AAF6900667899 /* ncl.h */,
 				529197371A1AA4DC00E8DA02 /* Main.storyboard */,
 				5291973A1A1AA4DC00E8DA02 /* Images.xcassets */,
 				5291973C1A1AA4DC00E8DA02 /* LaunchScreen.xib */,
@@ -96,6 +116,7 @@
 		5291972D1A1AA4DC00E8DA02 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				52F501291A1AEA0000667899 /* libNCLNetiOS.a */,
 				5291972E1A1AA4DC00E8DA02 /* Info.plist */,
 				5291972F1A1AA4DC00E8DA02 /* main.m */,
 			);
@@ -219,8 +240,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				529197361A1AA4DC00E8DA02 /* ViewController.m in Sources */,
+				529197361A1AA4DC00E8DA02 /* SignInViewController.m in Sources */,
+				52F501241A1ADA8300667899 /* BlockIOController.m in Sources */,
+				52F5011E1A1AAEC600667899 /* NclWrapper.m in Sources */,
 				529197331A1AA4DC00E8DA02 /* AppDelegate.m in Sources */,
+				52273D6B1A1B30C10076ADFC /* HomeTableViewController.m in Sources */,
 				529197301A1AA4DC00E8DA02 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -345,6 +369,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Chainlock/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Chainlock",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -355,6 +383,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Chainlock/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Chainlock",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -412,6 +444,7 @@
 				5291974F1A1AA4DC00E8DA02 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		529197501A1AA4DC00E8DA02 /* Build configuration list for PBXNativeTarget "ChainlockTests" */ = {
 			isa = XCConfigurationList;
@@ -420,6 +453,7 @@
 				529197521A1AA4DC00E8DA02 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
