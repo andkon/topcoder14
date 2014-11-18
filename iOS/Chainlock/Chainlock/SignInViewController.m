@@ -7,7 +7,6 @@
 //
 
 #import "SignInViewController.h"
-#import "AppDelegate.h"
 
 @interface SignInViewController ()
 
@@ -34,8 +33,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-    self.appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
-    myNcl =self.appDelegate.myNcl;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -90,8 +87,6 @@
                 [myNcl disconnectNymi:(currentEvent.provision.nymiHandle)];
                 nymiProvsioned=YES;
                 [self.button setTitle:@"Provisioned. Now press to validate it" forState:UIControlStateNormal];
-//                 Permastorage of privision deets:
-                [self permastoreProvisionDetails:currentEvent.provision.provision];
                 // it is used to find the same nymi on subsequent calls
                 //if (nymiProvsioned)
                 if (nymiProvsioned)
@@ -108,6 +103,35 @@
     }
     
     else {    // if already provisioned, we just have to find the nymi and validate
+        switch (currentEvent.type) {
+            case NCL_EVENT_FIND:
+                [myNcl validateNymi:(currentEvent.find.nymiHandle)];
+                [myNcl setEventTypeToWaitFor:NCL_EVENT_VALIDATION];
+                [myNcl waitNclForEvent];
+                [myNcl stopScan];
+                break;
+                
+            case NCL_EVENT_VALIDATION:
+                [myNcl disconnectNymi:(currentEvent.validation.nymiHandle)];
+                if (nymiProvsioned)
+                    dispatch_async(dispatch_get_main_queue(),
+                                   ^{
+                                       // show sick ass new view controller
+                                       [self.button setTitle:@"VALIDATED HOMIE" forState:UIControlStateNormal];
+
+                                       [self.button setEnabled:(NO)];
+                                       UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+                                       UINavigationController *navVC = [storyboard instantiateViewControllerWithIdentifier:@"NavVC"];
+                                       AppDelegate *appDelegate = [UIApplication sharedApplication].delegate;
+                                       appDelegate.window.rootViewController = navVC;
+                                       [appDelegate.window makeKeyAndVisible];
+
+                                   });
+                
+                
+            default:
+                break;
+        }
         
     }
 }
@@ -128,14 +152,11 @@
         [self.button setTitle:@"NCL Initialized, waiting for init event\n" forState:UIControlStateNormal];
     }
     else {
-        NSString *string = @"Nymi already provisioned, in validate step -  Finding provisioned Nymi...";
+        NSString *string = @"in validate step -  Finding provisioned Nymi...";
         [self.button setTitle:string forState:UIControlStateNormal];
         [myNcl findNymi];
         [myNcl setEventTypeToWaitFor:NCL_EVENT_FIND];
         [myNcl waitNclForEvent];
-        [self.appDelegate displayViewControllerForNymiStatus:NymiStatusProvisioned];
-        self.appDelegate.myNcl = myNcl;
-        [myNcl setNclDelegate:self.appDelegate];
     }
     
     
@@ -144,40 +165,4 @@
     
 }
 
-- (void)permastoreProvisionDetails:(NclProvision)provision
-{
-    NSString *key = [NSString stringWithFormat:@"%@", provisionButtToString(provision.key)];
-    NSLog(@"%@", key);
-    NSString *id = [NSString stringWithFormat:@"%@", provisionButtToString(provision.id)];
-    NSLog(@"%@", id);
-    NSDictionary *provisions = @{
-                                 @"id": id,
-                                 @"key": key
-                                 };
-    
-    NSMutableData *data = [[NSMutableData alloc] init];
-    NSKeyedArchiver *archiver = [[NSKeyedArchiver alloc] initForWritingWithMutableData:data];
-    
-    [archiver encodeObject:provisions forKey:@"provisionDetails"];
-    [archiver finishEncoding];
-    
-    NSError *error = nil;
-    
-    AppDelegate *delegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
-    NSString *filePath = [delegate permaStorageFilePath];
-    BOOL success = [data writeToFile:filePath options:NSDataWritingAtomic error: &error];
-    if (!success) {
-        NSLog(@"writeToFile failed with error %@", error);
-    } else {
-        NSLog(@"Successfully wrote provisionDetails");
-    }
-
-}
-
-NSString* provisionButtToString(NclProvisionId provisionId){
-    NSMutableString* result=[[NSMutableString alloc] init];
-    for(unsigned i=0; i<NCL_PROVISION_ID_SIZE; ++i)
-        [result appendFormat: @"%x ", provisionId[i]];
-    return result;
-}
 @end

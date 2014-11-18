@@ -9,7 +9,7 @@
             <objects>
                 <tableViewController id="svN-9n-R1M" customClass="HomeTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="qph-zn-zAD">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
@@ -25,16 +25,52 @@
                             <outlet property="delegate" destination="svN-9n-R1M" id="xZ9-IM-RVx"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Your Wallet" id="hQa-3s-ecA"/>
+                    <navigationItem key="navigationItem" title="Your Wallet" id="hQa-3s-ecA">
+                        <barButtonItem key="rightBarButtonItem" title="Send BTC$" style="plain" id="u1N-n4-ETC">
+                            <color key="tintColor" red="0.0" green="0.98624604940000005" blue="0.015841684540000001" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <segue destination="RNK-h2-IlG" kind="presentation" id="Tlp-Ix-25M"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <refreshControl key="refreshControl" opaque="NO" multipleTouchEnabled="YES" contentMode="center" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="p0C-yr-iuE">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <connections>
+                            <action selector="refreshControlAction:" destination="svN-9n-R1M" eventType="valueChanged" id="4vl-j7-7yN"/>
+                        </connections>
+                    </refreshControl>
+                    <connections>
+                        <outlet property="refreshControl" destination="p0C-yr-iuE" id="dWT-vC-mGx"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FL4-fc-aMk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="470" y="1068"/>
+            <point key="canvasLocation" x="254.5" y="1067.5"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="Oq8-VR-odu">
+            <objects>
+                <viewController id="RNK-h2-IlG" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Tu4-4x-fbe"/>
+                        <viewControllerLayoutGuide type="bottom" id="Fep-Ha-bxG"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="tOn-ZG-nGj">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ag1-jZ-5vs" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="789.5" y="1067.5"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="uNr-ks-B1y">
             <objects>
                 <navigationController storyboardIdentifier="NavVC" id="TkQ-Oh-1Kg" sceneMemberID="viewController">
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Hnc-0D-Y1p">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
