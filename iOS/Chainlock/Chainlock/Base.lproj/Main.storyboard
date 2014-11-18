@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14B23" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="TkQ-Oh-1Kg">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14B23" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
     </dependencies>
@@ -42,15 +42,14 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Your Wallet" id="hQa-3s-ecA">
-                        <barButtonItem key="leftBarButtonItem" title="Confirm" id="aA0-MV-sHL">
+                        <barButtonItem key="leftBarButtonItem" image="icon_settings.png" id="aA0-MV-sHL">
                             <connections>
-                                <segue destination="g2N-LM-ENj" kind="presentation" id="HqQ-Lc-cZt"/>
+                                <segue destination="g2N-LM-ENj" kind="show" id="QtR-XZ-NJc"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Send BTC$" style="plain" id="u1N-n4-ETC">
-                            <color key="tintColor" red="0.0" green="0.98624604940000005" blue="0.015841684540000001" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
-                                <segue destination="RNK-h2-IlG" kind="presentation" id="Tlp-Ix-25M"/>
+                                <segue destination="RNK-h2-IlG" kind="show" id="v3B-r3-T72"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -59,7 +58,7 @@
             </objects>
             <point key="canvasLocation" x="254.5" y="1067.5"/>
         </scene>
-        <!--Start Transaction View Controller-->
+        <!--Send Bitcoin-->
         <scene sceneID="Oq8-VR-odu">
             <objects>
                 <viewController id="RNK-h2-IlG" customClass="StartTransactionViewController" sceneMemberID="viewController">
@@ -68,34 +67,74 @@
                         <viewControllerLayoutGuide type="bottom" id="Fep-Ha-bxG"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="tOn-ZG-nGj">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="94" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nld-CF-sFR">
-                                <rect key="frame" x="164" y="363" width="46" height="30"/>
-                                <state key="normal" title="Button">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="0.0000BTC" textAlignment="center" minimumFontSize="17" background="Textbox.png" translatesAutoresizingMaskIntoConstraints="NO" id="lkH-rO-dwp">
+                                <rect key="frame" x="89" y="154" width="197" height="43"/>
+                                <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="21"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="next"/>
                                 <connections>
-                                    <action selector="startTransactionPressed:" destination="RNK-h2-IlG" eventType="touchUpInside" id="1gb-rZ-f2j"/>
+                                    <action selector="btcEditingChanged:" destination="RNK-h2-IlG" eventType="editingChanged" id="HBE-qQ-AIi"/>
+                                    <outlet property="delegate" destination="RNK-h2-IlG" id="gZS-xo-Tlp"/>
                                 </connections>
-                            </button>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="How many Bitcoin?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YTo-G0-JkM">
+                                <rect key="frame" x="100" y="125" width="174" height="21"/>
+                                <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NzE-j1-vgT">
+                                <rect key="frame" x="100" y="205" width="174" height="21"/>
+                                <fontDescription key="fontDescription" name="CourierNewPS-ItalicMT" family="Courier New" pointSize="15"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Where should we send it?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xDl-bM-6s7">
+                                <rect key="frame" x="89" y="264" width="197" height="42"/>
+                                <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="btc address" textAlignment="center" minimumFontSize="17" background="BigTextbox.png" translatesAutoresizingMaskIntoConstraints="NO" id="j46-gw-Etn">
+                                <rect key="frame" x="58" y="321" width="258" height="65"/>
+                                <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Hm. Try fewer. Many fewer." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YQg-Ze-pOP">
+                                <rect key="frame" x="54" y="240" width="266" height="21"/>
+                                <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="17"/>
+                                <color key="textColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Send Bitcoin" id="s7g-md-96Q">
+                        <barButtonItem key="rightBarButtonItem" title="Send" id="gcd-Os-H2g">
+                            <connections>
+                                <action selector="sendBarButtonPressed:" destination="RNK-h2-IlG" id="Pdc-3X-NWP"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
-                        <outlet property="startTransactionButton" destination="nld-CF-sFR" id="ZkN-Gf-CzF"/>
+                        <outlet property="addressTextField" destination="j46-gw-Etn" id="aJG-Ek-I01"/>
+                        <outlet property="bitcoinTextField" destination="lkH-rO-dwp" id="o9L-ya-smA"/>
+                        <outlet property="error" destination="YQg-Ze-pOP" id="QQW-ol-HuN"/>
+                        <outlet property="sendBarButton" destination="gcd-Os-H2g" id="kYl-2d-cDJ"/>
+                        <outlet property="usdLabel" destination="NzE-j1-vgT" id="vRt-bE-DmG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ag1-jZ-5vs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="789.5" y="1067.5"/>
         </scene>
-        <!--Confirm Transaction View Controller-->
+        <!--Confirm Send-->
         <scene sceneID="Ksw-3g-Zv4">
             <objects>
-                <viewController id="g2N-LM-ENj" customClass="ConfirmTransactionViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ConfirmVC" id="g2N-LM-ENj" customClass="ConfirmTransactionViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="58O-GT-ODs"/>
                         <viewControllerLayoutGuide type="bottom" id="aEt-33-eOX"/>
@@ -104,21 +143,74 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DbA-Dw-8ey">
-                                <rect key="frame" x="164" y="363" width="46" height="30"/>
-                                <state key="normal" title="Button">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="You're sending" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="weD-is-8Vh">
+                                <rect key="frame" x="100" y="134" width="174" height="21"/>
+                                <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="XXX BTC" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x5r-9J-Unj">
+                                <rect key="frame" x="16" y="170" width="343" height="21"/>
+                                <fontDescription key="fontDescription" name="CourierNewPS-BoldMT" family="Courier New" pointSize="24"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="That's $x USD" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hr9-AD-hVH">
+                                <rect key="frame" x="100" y="187" width="174" height="21"/>
+                                <fontDescription key="fontDescription" name="CourierNewPS-ItalicMT" family="Courier New" pointSize="14"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="to" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DcI-7v-u0G">
+                                <rect key="frame" x="100" y="221" width="174" height="21"/>
+                                <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Are you sure you want to send" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fMY-Xd-5Jp">
+                                <rect key="frame" x="100" y="382" width="170" height="42"/>
+                                <fontDescription key="fontDescription" name="CourierNewPSMT" family="Courier New" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0.0123124 bitcoin?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZRz-Hn-kcD">
+                                <rect key="frame" x="16" y="423" width="343" height="21"/>
+                                <fontDescription key="fontDescription" name="CourierNewPS-BoldMT" family="Courier New" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zw0-gq-YWo">
+                                <rect key="frame" x="74" y="471" width="223" height="56"/>
+                                <state key="normal" image="Confirm with nymi.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="confirmButtonPressed:" destination="g2N-LM-ENj" eventType="touchUpInside" id="dqL-Gl-7wj"/>
+                                    <action selector="nymiConfirmPressed:" destination="g2N-LM-ENj" eventType="touchUpInside" id="8tu-zq-Ust"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Make sure you're wearing your Nymi." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5wa-L3-cz1">
+                                <rect key="frame" x="45" y="530" width="285" height="21"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="13"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="2MuDfMJAp7m3aatV1bDnrPZMzpRb3t3QMfB" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8em-qe-07k">
+                                <rect key="frame" x="101" y="244" width="173" height="43"/>
+                                <fontDescription key="fontDescription" name="CourierNewPS-BoldMT" family="Courier New" pointSize="15"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Confirm Send" id="D42-Lz-7ez"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
-                        <outlet property="confirmButton" destination="DbA-Dw-8ey" id="Hdm-hJ-yfY"/>
+                        <outlet property="addressLabel" destination="8em-qe-07k" id="Dlg-Ia-hUI"/>
+                        <outlet property="btcAmount" destination="x5r-9J-Unj" id="yZ4-cO-ysf"/>
+                        <outlet property="btcConfirmAmount" destination="ZRz-Hn-kcD" id="SKO-Ll-mw8"/>
+                        <outlet property="nymiButton" destination="Zw0-gq-YWo" id="8YQ-mA-LeI"/>
+                        <outlet property="usdAmount" destination="Hr9-AD-hVH" id="4NH-bd-NEZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bSl-TH-p0w" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -157,15 +249,31 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JUx-at-jtj">
-                                <rect key="frame" x="53" y="512" width="296" height="114"/>
-                                <state key="normal" title="Button">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Background.png" translatesAutoresizingMaskIntoConstraints="NO" id="WWo-QD-iEW">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JUx-at-jtj">
+                                <rect key="frame" x="77" y="508" width="220" height="56"/>
+                                <state key="normal" image="Nymi sign in.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <state key="disabled" image="Provisioning.png"/>
+                                <state key="highlighted" image="Connect nymi.png"/>
                                 <connections>
                                     <action selector="buttonPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="RsW-yB-xQa"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="logo.png" translatesAutoresizingMaskIntoConstraints="NO" id="KF9-lG-aws">
+                                <rect key="frame" x="92" y="122" width="190" height="190"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5qp-pr-lMl">
+                                <rect key="frame" x="123" y="337" width="129" height="80"/>
+                                <string key="text">Welcome to
+Chainlock</string>
+                                <fontDescription key="fontDescription" name="CourierNewPS-BoldMT" family="Courier New" pointSize="21"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -178,4 +286,15 @@
             </objects>
         </scene>
     </scenes>
+    <resources>
+        <image name="Background.png" width="320" height="568"/>
+        <image name="BigTextbox.png" width="262" height="69"/>
+        <image name="Confirm with nymi.png" width="221" height="56"/>
+        <image name="Connect nymi.png" width="221" height="56"/>
+        <image name="Nymi sign in.png" width="221" height="56"/>
+        <image name="Provisioning.png" width="221" height="56"/>
+        <image name="Textbox.png" width="201" height="47"/>
+        <image name="icon_settings.png" width="26" height="26"/>
+        <image name="logo.png" width="190" height="190"/>
+    </resources>
 </document>

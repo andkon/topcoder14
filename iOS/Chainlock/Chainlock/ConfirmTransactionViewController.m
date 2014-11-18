@@ -18,7 +18,19 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    // Do any additional setup after loading the
+    self.navigationItem.title = @"Confirm Send";
+    
+    self.btcAmount.text = [NSString stringWithFormat:@"%@ BTC", self.bitcoinAmount];
+    
+    CGFloat usd = [self.bitcoinAmount floatValue] * 378.09;
+    NSString* formattedNumber = [NSString stringWithFormat:@"%.02f", usd];
+    NSString *usdString = [NSString stringWithFormat:@"That's $%@ USD.", formattedNumber];
+    self.usdAmount.text = usdString;
+    
+    self.addressLabel.text = self.address;
+    
+    self.btcConfirmAmount.text = [NSString stringWithFormat:@"%@ bitcoin?", self.bitcoinAmount];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -36,9 +48,17 @@
     
     [manager POST:urlEnding parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
         NSLog(@"Successfully confirmed transaction: %@", responseObject);
+        [self.nymiButton setImage:[UIImage imageNamed:@"Success.png"] forState:UIControlStateNormal];
+        dispatch_time_t delay = dispatch_time(0, (int64_t)(1.2 * NSEC_PER_SEC));
+        dispatch_after(delay, dispatch_get_main_queue(), ^(void){
+            [self.navigationController popToRootViewControllerAnimated:YES];
+        });
+
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         NSLog(@"Couldn't confirm transaction.");
         NSLog(@"Error: %@", error.description);
+        [self.navigationItem setRightBarButtonItem:nil animated:YES];
+
     }];
 }
 
@@ -53,7 +73,15 @@
 }
 */
 
-- (IBAction)confirmButtonPressed:(id)sender {
-    [self confirmTransactionId:[NSNumber numberWithInt:8] withPin:@"4QwS5xSnzgyV"];
+- (IBAction)nymiConfirmPressed:(id)sender {
+    UIActivityIndicatorView * activityView = [[UIActivityIndicatorView alloc] initWithFrame:CGRectMake(0, 0, 25, 25)];
+    activityView.color = [[UIColor alloc] initWithWhite:0 alpha:1.0];
+    [activityView sizeToFit];
+    [activityView startAnimating];
+    [activityView setAutoresizingMask:(UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleBottomMargin)];
+    UIBarButtonItem *loadingView = [[UIBarButtonItem alloc] initWithCustomView:activityView];
+    [self.navigationItem setRightBarButtonItem:loadingView animated:YES];
+
+    [self confirmTransactionId:self.transactionId withPin:BtKey];
 }
 @end

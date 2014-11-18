@@ -9,6 +9,7 @@
 #import "StartTransactionViewController.h"
 #import <AFNetworking/AFHTTPSessionManager.h>
 #import "Credentials.h"
+#import "ConfirmTransactionViewController.h"
 
 @interface StartTransactionViewController ()
 
@@ -19,6 +20,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.navigationItem.title = @"Send Bitcoin";
+    [self.error setHidden:YES];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -37,11 +40,18 @@
     
     [manager POST:urlEnding parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
         NSLog(@"Successfully posted new transaction: %@", responseObject);
-        self.startTransactionButton.backgroundColor = [UIColor greenColor];
+        // Now push the confirm screen
+        ConfirmTransactionViewController *vc = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"ConfirmVC"];
+        vc.bitcoinAmount = btc;
+        vc.transactionId = responseObject[@"transaction_id"];
+        vc.address = address;
+        [self.navigationController pushViewController:vc animated:YES];
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         NSLog(@"Couldn't post new transaction.");
         NSLog(@"Error: %@", error.description);
-        self.startTransactionButton.backgroundColor = [UIColor redColor];
+        
+        [self.navigationItem setRightBarButtonItem:self.sendBarButton animated:YES];
+        [self.error setHidden:NO];
     }];
 }
 
@@ -55,7 +65,43 @@
 }
 */
 
-- (IBAction)startTransactionPressed:(id)sender {
-    [self sendTransactionAmount:[NSNumber numberWithFloat:0.0001] toBitcoinAddress:@"2MuDfMJAp7m3aatV1bDnrPZMzpRb3t3QMfB"];
+- (IBAction)btcEditingChanged:(id)sender {
+    NSNumberFormatter * f = [[NSNumberFormatter alloc] init];
+    [f setNumberStyle:NSNumberFormatterDecimalStyle];
+    NSNumber *btc = [f numberFromString:self.bitcoinTextField.text];
+    CGFloat usd = [btc floatValue] * 378;
+    NSString* formattedNumber = [NSString stringWithFormat:@"%.02f", usd];
+    NSString *usdString = [NSString stringWithFormat:@"That's $%@ USD.", formattedNumber];
+    self.usdLabel.text = usdString;
 }
+
+- (IBAction)sendBarButtonPressed:(id)sender
+{
+    // Get the number of bitcoin and the address
+    NSNumberFormatter * f = [[NSNumberFormatter alloc] init];
+    [f setNumberStyle:NSNumberFormatterDecimalStyle];
+    if (f) {
+        NSNumber * btc = [f numberFromString:self.bitcoinTextField.text];
+        
+        UIActivityIndicatorView * activityView = [[UIActivityIndicatorView alloc] initWithFrame:CGRectMake(0, 0, 25, 25)];
+        activityView.color = [[UIColor alloc] initWithWhite:0 alpha:1.0];
+        [activityView sizeToFit];
+        [activityView startAnimating];
+        [activityView setAutoresizingMask:(UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleBottomMargin)];
+        UIBarButtonItem *loadingView = [[UIBarButtonItem alloc] initWithCustomView:activityView];
+//        self.sendBarButton = self.navigationItem.rightBarButtonItem;
+        [self.navigationItem setRightBarButtonItem:loadingView animated:YES];
+
+        
+        [self sendTransactionAmount:btc toBitcoinAddress:self.addressTextField.text];
+    } else {
+        NSLog(@"btc number was nil");
+    }
+
+}
+
+//- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
+//{
+//}
+
 @end

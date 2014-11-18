@@ -54,13 +54,13 @@
             case NCL_EVENT_INIT:
                 // initialized, event, have to check it if it was successful before we move to discovery
                 if (currentEvent.init.success) {
-                    [self.button setTitle:@"NCL Initialized, discovering Nymi..." forState:UIControlStateNormal];
+                    [self.button setImage:[UIImage imageNamed:@"Provisioning.png"] forState:UIControlStateNormal];
                     [myNcl discoverNymi];
                     [myNcl setEventTypeToWaitFor:NCL_EVENT_DISCOVERY];
                     [myNcl waitNclForEvent];
                 }
                 else {
-                    [self.button setTitle:@"NCL initilize event returned error" forState:UIControlStateNormal];
+                    [self.button setTitle:@"error" forState:UIControlStateNormal];
                     self.nclInitEventFailure=YES;
                     self.button.enabled=NO;
                 }
@@ -70,14 +70,12 @@
             case NCL_EVENT_DISCOVERY:
                 // normally, would display LED pattern to expect to user and ask for validation
                 // here for simplicity we assume agreement
-                [self.button setTitle:@"Nymi discovered, agreeing..." forState:UIControlStateNormal];
                 [myNcl agreeNymi:(currentEvent.discovery.nymiHandle)];
                 [myNcl setEventTypeToWaitFor:NCL_EVENT_AGREEMENT];
                 [myNcl waitNclForEvent];
                 break;
                 
             case NCL_EVENT_AGREEMENT:
-                [self.button setTitle:@"Agreed, now provisioning..." forState:UIControlStateNormal];
                 [myNcl provisionNymi:(currentEvent.agreement.nymiHandle)];
                 [myNcl setEventTypeToWaitFor:NCL_EVENT_PROVISION];
                 [myNcl waitNclForEvent];
@@ -86,7 +84,8 @@
             case NCL_EVENT_PROVISION:
                 [myNcl disconnectNymi:(currentEvent.provision.nymiHandle)];
                 nymiProvsioned=YES;
-                [self.button setTitle:@"Provisioned. Now press to validate it" forState:UIControlStateNormal];
+                [self.button setImage:[UIImage imageNamed:@"Connect nymi.png"] forState:UIControlStateNormal];
+
                 // it is used to find the same nymi on subsequent calls
                 //if (nymiProvsioned)
                 if (nymiProvsioned)
@@ -117,8 +116,6 @@
                     dispatch_async(dispatch_get_main_queue(),
                                    ^{
                                        // show sick ass new view controller
-                                       [self.button setTitle:@"VALIDATED HOMIE" forState:UIControlStateNormal];
-
                                        [self.button setEnabled:(NO)];
                                        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
                                        UINavigationController *navVC = [storyboard instantiateViewControllerWithIdentifier:@"NavVC"];

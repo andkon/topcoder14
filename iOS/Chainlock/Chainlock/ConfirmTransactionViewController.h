@@ -11,8 +11,15 @@
 @interface ConfirmTransactionViewController : UIViewController
 
 @property (nonatomic, strong) NSNumber *transactionId;
-@property (weak, nonatomic) IBOutlet UIButton *confirmButton;
+@property (nonatomic, strong) NSNumber *bitcoinAmount;
+@property (nonatomic, strong) NSString *address;
 
-- (IBAction)confirmButtonPressed:(id)sender;
+@property (weak, nonatomic) IBOutlet UILabel *btcAmount;
+@property (weak, nonatomic) IBOutlet UILabel *usdAmount;
+@property (weak, nonatomic) IBOutlet UILabel *addressLabel;
+@property (weak, nonatomic) IBOutlet UILabel *btcConfirmAmount;
+@property (weak, nonatomic) IBOutlet UIButton *nymiButton;
+
+- (IBAction)nymiConfirmPressed:(id)sender;
 
 @end

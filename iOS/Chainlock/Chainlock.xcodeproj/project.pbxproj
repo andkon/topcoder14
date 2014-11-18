@@ -17,6 +17,27 @@
 		5291973B1A1AA4DC00E8DA02 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5291973A1A1AA4DC00E8DA02 /* Images.xcassets */; };
 		5291973E1A1AA4DC00E8DA02 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5291973C1A1AA4DC00E8DA02 /* LaunchScreen.xib */; };
 		5291974A1A1AA4DC00E8DA02 /* ChainlockTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 529197491A1AA4DC00E8DA02 /* ChainlockTests.m */; };
+		52EF50011A1B60790002F15F /* chainlock_white green locks.png in Resources */ = {isa = PBXBuildFile; fileRef = 52EF50001A1B60790002F15F /* chainlock_white green locks.png */; };
+		52EF500A1A1B69690002F15F /* Background@1x.png in Resources */ = {isa = PBXBuildFile; fileRef = 52EF50021A1B69690002F15F /* Background@1x.png */; };
+		52EF500B1A1B69690002F15F /* Background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 52EF50031A1B69690002F15F /* Background@2x.png */; };
+		52EF500C1A1B69690002F15F /* Connect nymi@1x.png in Resources */ = {isa = PBXBuildFile; fileRef = 52EF50041A1B69690002F15F /* Connect nymi@1x.png */; };
+		52EF500D1A1B69690002F15F /* Connect nymi@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 52EF50051A1B69690002F15F /* Connect nymi@2x.png */; };
+		52EF500E1A1B69690002F15F /* Nymi sign in@1x.png in Resources */ = {isa = PBXBuildFile; fileRef = 52EF50061A1B69690002F15F /* Nymi sign in@1x.png */; };
+		52EF500F1A1B69690002F15F /* Nymi sign in@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 52EF50071A1B69690002F15F /* Nymi sign in@2x.png */; };
+		52EF50101A1B69690002F15F /* Provisioning@1x.png in Resources */ = {isa = PBXBuildFile; fileRef = 52EF50081A1B69690002F15F /* Provisioning@1x.png */; };
+		52EF50111A1B69690002F15F /* Provisioning@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 52EF50091A1B69690002F15F /* Provisioning@2x.png */; };
+		52EF50141A1B6A3E0002F15F /* logo@1x.png in Resources */ = {isa = PBXBuildFile; fileRef = 52EF50121A1B6A3E0002F15F /* logo@1x.png */; };
+		52EF50151A1B6A3E0002F15F /* logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 52EF50131A1B6A3E0002F15F /* logo@2x.png */; };
+		52EF50181A1B6E380002F15F /* icon_settings@1x.png in Resources */ = {isa = PBXBuildFile; fileRef = 52EF50161A1B6E380002F15F /* icon_settings@1x.png */; };
+		52EF50191A1B6E380002F15F /* icon_settings@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 52EF50171A1B6E380002F15F /* icon_settings@2x.png */; };
+		52EF501C1A1B6F310002F15F /* Textbox@1x.png in Resources */ = {isa = PBXBuildFile; fileRef = 52EF501A1A1B6F310002F15F /* Textbox@1x.png */; };
+		52EF501D1A1B6F310002F15F /* Textbox@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 52EF501B1A1B6F310002F15F /* Textbox@2x.png */; };
+		52EF50201A1B70710002F15F /* BigTextbox@1x.png in Resources */ = {isa = PBXBuildFile; fileRef = 52EF501E1A1B70710002F15F /* BigTextbox@1x.png */; };
+		52EF50211A1B70710002F15F /* BigTextbox@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 52EF501F1A1B70710002F15F /* BigTextbox@2x.png */; };
+		52EF50241A1B78070002F15F /* Confirm with nymi@1x.png in Resources */ = {isa = PBXBuildFile; fileRef = 52EF50221A1B78070002F15F /* Confirm with nymi@1x.png */; };
+		52EF50251A1B78070002F15F /* Confirm with nymi@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 52EF50231A1B78070002F15F /* Confirm with nymi@2x.png */; };
+		52EF50291A1B7F720002F15F /* Success@1x.png in Resources */ = {isa = PBXBuildFile; fileRef = 52EF50271A1B7F720002F15F /* Success@1x.png */; };
+		52EF502A1A1B7F720002F15F /* Success@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 52EF50281A1B7F720002F15F /* Success@2x.png */; };
 		52F5011E1A1AAEC600667899 /* NclWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 52F5011C1A1AAEC600667899 /* NclWrapper.m */; };
 		52F501241A1ADA8300667899 /* BlockIOController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52F501231A1ADA8300667899 /* BlockIOController.m */; };
 		52F5012A1A1AEA0000667899 /* libNCLNetiOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 52F501291A1AEA0000667899 /* libNCLNetiOS.a */; };
@@ -56,6 +77,27 @@
 		529197431A1AA4DC00E8DA02 /* ChainlockTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ChainlockTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		529197481A1AA4DC00E8DA02 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		529197491A1AA4DC00E8DA02 /* ChainlockTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChainlockTests.m; sourceTree = "<group>"; };
+		52EF50001A1B60790002F15F /* chainlock_white green locks.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "chainlock_white green locks.png"; sourceTree = "<group>"; };
+		52EF50021A1B69690002F15F /* Background@1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Background@1x.png"; sourceTree = "<group>"; };
+		52EF50031A1B69690002F15F /* Background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Background@2x.png"; sourceTree = "<group>"; };
+		52EF50041A1B69690002F15F /* Connect nymi@1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Connect nymi@1x.png"; sourceTree = "<group>"; };
+		52EF50051A1B69690002F15F /* Connect nymi@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Connect nymi@2x.png"; sourceTree = "<group>"; };
+		52EF50061A1B69690002F15F /* Nymi sign in@1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Nymi sign in@1x.png"; sourceTree = "<group>"; };
+		52EF50071A1B69690002F15F /* Nymi sign in@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Nymi sign in@2x.png"; sourceTree = "<group>"; };
+		52EF50081A1B69690002F15F /* Provisioning@1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Provisioning@1x.png"; sourceTree = "<group>"; };
+		52EF50091A1B69690002F15F /* Provisioning@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Provisioning@2x.png"; sourceTree = "<group>"; };
+		52EF50121A1B6A3E0002F15F /* logo@1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo@1x.png"; sourceTree = "<group>"; };
+		52EF50131A1B6A3E0002F15F /* logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo@2x.png"; sourceTree = "<group>"; };
+		52EF50161A1B6E380002F15F /* icon_settings@1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_settings@1x.png"; sourceTree = "<group>"; };
+		52EF50171A1B6E380002F15F /* icon_settings@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_settings@2x.png"; sourceTree = "<group>"; };
+		52EF501A1A1B6F310002F15F /* Textbox@1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Textbox@1x.png"; sourceTree = "<group>"; };
+		52EF501B1A1B6F310002F15F /* Textbox@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Textbox@2x.png"; sourceTree = "<group>"; };
+		52EF501E1A1B70710002F15F /* BigTextbox@1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "BigTextbox@1x.png"; sourceTree = "<group>"; };
+		52EF501F1A1B70710002F15F /* BigTextbox@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "BigTextbox@2x.png"; sourceTree = "<group>"; };
+		52EF50221A1B78070002F15F /* Confirm with nymi@1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Confirm with nymi@1x.png"; sourceTree = "<group>"; };
+		52EF50231A1B78070002F15F /* Confirm with nymi@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Confirm with nymi@2x.png"; sourceTree = "<group>"; };
+		52EF50271A1B7F720002F15F /* Success@1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Success@1x.png"; sourceTree = "<group>"; };
+		52EF50281A1B7F720002F15F /* Success@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Success@2x.png"; sourceTree = "<group>"; };
 		52F5011C1A1AAEC600667899 /* NclWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NclWrapper.m; sourceTree = "<group>"; };
 		52F5011D1A1AAEC600667899 /* NclWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NclWrapper.h; sourceTree = "<group>"; };
 		52F501211A1AAF6900667899 /* ncl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ncl.h; sourceTree = "<group>"; };
@@ -131,6 +173,7 @@
 				52F5011C1A1AAEC600667899 /* NclWrapper.m */,
 				52F501221A1ADA8300667899 /* BlockIOController.h */,
 				52F501231A1ADA8300667899 /* BlockIOController.m */,
+				52EF50261A1B7A9E0002F15F /* Design */,
 				52F501211A1AAF6900667899 /* ncl.h */,
 				52273D781A1B45C70076ADFC /* Credentials.h */,
 				529197371A1AA4DC00E8DA02 /* Main.storyboard */,
@@ -166,6 +209,34 @@
 				529197481A1AA4DC00E8DA02 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		52EF50261A1B7A9E0002F15F /* Design */ = {
+			isa = PBXGroup;
+			children = (
+				52EF50001A1B60790002F15F /* chainlock_white green locks.png */,
+				52EF50161A1B6E380002F15F /* icon_settings@1x.png */,
+				52EF50171A1B6E380002F15F /* icon_settings@2x.png */,
+				52EF50221A1B78070002F15F /* Confirm with nymi@1x.png */,
+				52EF50231A1B78070002F15F /* Confirm with nymi@2x.png */,
+				52EF50121A1B6A3E0002F15F /* logo@1x.png */,
+				52EF50131A1B6A3E0002F15F /* logo@2x.png */,
+				52EF50271A1B7F720002F15F /* Success@1x.png */,
+				52EF50281A1B7F720002F15F /* Success@2x.png */,
+				52EF501E1A1B70710002F15F /* BigTextbox@1x.png */,
+				52EF501F1A1B70710002F15F /* BigTextbox@2x.png */,
+				52EF50021A1B69690002F15F /* Background@1x.png */,
+				52EF50031A1B69690002F15F /* Background@2x.png */,
+				52EF50041A1B69690002F15F /* Connect nymi@1x.png */,
+				52EF50051A1B69690002F15F /* Connect nymi@2x.png */,
+				52EF50061A1B69690002F15F /* Nymi sign in@1x.png */,
+				52EF50071A1B69690002F15F /* Nymi sign in@2x.png */,
+				52EF50081A1B69690002F15F /* Provisioning@1x.png */,
+				52EF50091A1B69690002F15F /* Provisioning@2x.png */,
+				52EF501A1A1B6F310002F15F /* Textbox@1x.png */,
+				52EF501B1A1B6F310002F15F /* Textbox@2x.png */,
+			);
+			name = Design;
 			sourceTree = "<group>";
 		};
 		E468131947730C403D76A76C /* Frameworks */ = {
@@ -227,6 +298,7 @@
 				TargetAttributes = {
 					529197291A1AA4DC00E8DA02 = {
 						CreatedOnToolsVersion = 6.1;
+						DevelopmentTeam = PYRSGL7QFF;
 					};
 					529197421A1AA4DC00E8DA02 = {
 						CreatedOnToolsVersion = 6.1;
@@ -258,9 +330,30 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				52EF500B1A1B69690002F15F /* Background@2x.png in Resources */,
 				529197391A1AA4DC00E8DA02 /* Main.storyboard in Resources */,
+				52EF50251A1B78070002F15F /* Confirm with nymi@2x.png in Resources */,
+				52EF500E1A1B69690002F15F /* Nymi sign in@1x.png in Resources */,
+				52EF500F1A1B69690002F15F /* Nymi sign in@2x.png in Resources */,
 				5291973E1A1AA4DC00E8DA02 /* LaunchScreen.xib in Resources */,
+				52EF501D1A1B6F310002F15F /* Textbox@2x.png in Resources */,
 				5291973B1A1AA4DC00E8DA02 /* Images.xcassets in Resources */,
+				52EF500A1A1B69690002F15F /* Background@1x.png in Resources */,
+				52EF50111A1B69690002F15F /* Provisioning@2x.png in Resources */,
+				52EF50141A1B6A3E0002F15F /* logo@1x.png in Resources */,
+				52EF50011A1B60790002F15F /* chainlock_white green locks.png in Resources */,
+				52EF502A1A1B7F720002F15F /* Success@2x.png in Resources */,
+				52EF50191A1B6E380002F15F /* icon_settings@2x.png in Resources */,
+				52EF50101A1B69690002F15F /* Provisioning@1x.png in Resources */,
+				52EF50241A1B78070002F15F /* Confirm with nymi@1x.png in Resources */,
+				52EF50181A1B6E380002F15F /* icon_settings@1x.png in Resources */,
+				52EF50151A1B6A3E0002F15F /* logo@2x.png in Resources */,
+				52EF501C1A1B6F310002F15F /* Textbox@1x.png in Resources */,
+				52EF500C1A1B69690002F15F /* Connect nymi@1x.png in Resources */,
+				52EF50291A1B7F720002F15F /* Success@1x.png in Resources */,
+				52EF50201A1B70710002F15F /* BigTextbox@1x.png in Resources */,
+				52EF50211A1B70710002F15F /* BigTextbox@2x.png in Resources */,
+				52EF500D1A1B69690002F15F /* Connect nymi@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -441,6 +534,7 @@
 			baseConfigurationReference = 10EE5A0AD4D5AE380585DC43 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = Chainlock/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
@@ -456,6 +550,7 @@
 			baseConfigurationReference = 1774C633EB9E9FAA6138F642 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = Chainlock/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
